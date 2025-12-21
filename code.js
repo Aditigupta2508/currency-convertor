@@ -108,4 +108,14 @@ toggleBtn.addEventListener('click', () => {
 
 let fromCurrency = "";
 let toCurrency = "";
+fetch("https://open.er-api.com/v6/latest/USD")
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("API Error: " + res.status);
+    }
+    return res.json();
+  })
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
 
